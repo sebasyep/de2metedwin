@@ -23,12 +23,12 @@ public class Eindopdracht {
 				int hoeveelheidKeuzes = randomWoord.length;
 				char spelerKiest[] = new char[hoeveelheidKeuzes];
 				
-				for(int i=0; i<spelerKiest.length; i++){ // De dashes die er komen te staan aan het begin "_ _ _ _ _ _ _ _"
+				for(int i=0; i<spelerKiest.length; i++){ // De dashes die er komen te staan in het begin "_ _ _ _ _ _ _ _"
 					spelerKiest[i] =  '_';
 	            }
 				boolean woordIsGeraden = false;
 	            int pogingen = 0;
-	            //Het woord gaan raden
+	            
 	            while(!woordIsGeraden && pogingen != hoeveelheidKeuzes) {
 	            	System.out.println("Het woord: ");
 	            	print(spelerKiest);
