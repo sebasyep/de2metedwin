@@ -26,6 +26,8 @@ public class Eindopdracht {
 
 		while (inGame) {
 
+			System.out.println(randomWoord.length);
+
 			for (int i = 0; i < spelerKiest.length; i++) { // De dashes die er komen te staan in het begin "_ _ _ _
 															// _ _
 															// _ _"
@@ -53,7 +55,9 @@ public class Eindopdracht {
 						inGame = false;
 						gewonnen = true;
 						pogingen = 0;
+
 					}
+
 				}
 				pogingen--;
 			}
@@ -62,41 +66,47 @@ public class Eindopdracht {
 				gewonnen = false;
 				pogingen = 0;
 			}
-		}
-		if (gewonnen) {
-			System.out.print("Je hebt gewonnen!\n Het woord was: ");
-			for (int i = 0; i < randomWoord.length; i++) {
-				System.out.print(randomWoord[i]);
-			}
-			System.out.println("\n\nWilt u nog een spel starten?\nvoer in: ja of nee");
-			Scanner scanner2 = new Scanner(System.in);
-			String keuze = scanner2.nextLine();
 
-			if (keuze.equals("ja")) {
-				System.out.println("\n\n\n\n\n\n\n");
-				inGame = true;
-				woordIsGeraden = false;
-				gewonnen = false;
-			} else {
-				System.out.println("\n\n\n\n\n\n\n");
-			}
-		} else {
-			System.out.print("Je hebt verloren..\n Het woord was: ");
-			for (int i = 0; i < randomWoord.length; i++) {
-				System.out.print(randomWoord[i]);
-			}
-			System.out.println("\n\nWilt u nog een spel starten?\nvoer in: ja of nee");
-			Scanner scanner2 = new Scanner(System.in);
-			String keuze = scanner2.nextLine();
+			if (gewonnen) {
+				System.out.print("Je hebt gewonnen!\n Het woord was: ");
+				for (int i = 0; i < randomWoord.length; i++) {
+					System.out.print(randomWoord[i]);
+				}
+				System.out.println("\n\nWilt u nog een spel starten?\nvoer in: ja of nee");
+				Scanner scanner2 = new Scanner(System.in);
+				String keuze = scanner2.nextLine();
 
-			if (keuze.equals("ja")) {
-				System.out.println("\n\n\n\n\n\n\n");
-				inGame = true;
-				woordIsGeraden = false;
-				gewonnen = false;
+				if (keuze.equals("ja")) {
+					System.out.println("\n\n\n\n\n\n\n");
+					inGame = true;
+					woordIsGeraden = false;
+					gewonnen = false;
+					nummer = new Random().nextInt(woorden.length);
+					randomWoord = woorden[nummer].toCharArray();
+				} else {
+					System.out.println("\n\n\n\n\n\n\n");
+				}
 			} else {
-				System.out.println("\n\n\n\n\n\n\n");
+				System.out.print("Je hebt verloren..\n Het woord was: ");
+				for (int i = 0; i < randomWoord.length; i++) {
+					System.out.print(randomWoord[i]);
+				}
+				System.out.println("\n\nWilt u nog een spel starten?\nvoer in: ja of nee");
+				Scanner scanner2 = new Scanner(System.in);
+				String keuze = scanner2.nextLine();
+
+				if (keuze.equals("ja")) {
+					System.out.println("\n\n\n\n\n\n\n");
+					inGame = true;
+					woordIsGeraden = false;
+					gewonnen = false;
+					nummer = new Random().nextInt(woorden.length);
+					randomWoord = woorden[nummer].toCharArray();
+				} else {
+					System.out.println("\n\n\n\n\n\n\n");
+				}
 			}
+
 		}
 
 	}
