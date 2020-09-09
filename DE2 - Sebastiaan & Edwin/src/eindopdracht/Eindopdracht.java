@@ -8,7 +8,6 @@ public class Eindopdracht {
 	public static void main(String[] args) {
 
 		Scanner scanner = new Scanner(System.in);
-		Random random = new Random();
 		// Woorden worden hier aangemaakt.
 		String[] woorden = { "banaan", "appel", "vuur", "bij", "jas", "pakket", "uien", "bier", "fles", "leren", "teer",
 				"werken", "stift", "woord", "vijf", "zak", "oor", "mond", "kast", "regen", "zon", "kaas", "slim",
@@ -21,12 +20,12 @@ public class Eindopdracht {
 		int nummer = new Random().nextInt(woorden.length);
 		char randomWoord[] = woorden[nummer].toCharArray();
 		char spelerKiest[] = new char[randomWoord.length];
+		char letters[] = new char[randomWoord.length + 2];
 		int geraden = 0;
+		int telling = 0;
 		boolean woordIsGeraden = false;
 
 		while (inGame) {
-
-			System.out.println(randomWoord.length);
 
 			for (int i = 0; i < spelerKiest.length; i++) { // De dashes die er komen te staan in het begin "_ _ _ _"
 				spelerKiest[i] = '_';
@@ -39,6 +38,15 @@ public class Eindopdracht {
 					System.out.println("Het woord: ");
 					print(spelerKiest);
 					System.out.printf("Je hebt %d aantal pogingen over.\n", pogingen);
+
+					if (pogingen != 5) {
+						System.out.print("Gekozen letters: ");
+						for (int i = 0; i < letters.length; i++) {
+							System.out.print(letters[i] + " ");
+						}
+						System.out.println("\n");
+
+					}
 				}
 				char input = scanner.nextLine().charAt(0);
 
@@ -58,6 +66,9 @@ public class Eindopdracht {
 
 				}
 				pogingen--;
+				letters[telling] = input;
+				telling++;
+
 			}
 			if (!woordIsGeraden && pogingen == 0) {
 				inGame = false;
@@ -75,7 +86,6 @@ public class Eindopdracht {
 				String keuze = scanner2.nextLine();
 
 				if (keuze.equals("ja")) {
-					System.out.println("\n\n\n\n\n\n\n");
 					inGame = true;
 					woordIsGeraden = false;
 					gewonnen = false;
@@ -83,8 +93,8 @@ public class Eindopdracht {
 					randomWoord = woorden[nummer].toCharArray();
 					spelerKiest = new char[randomWoord.length];
 					geraden = 0;
-				} else {
-					System.out.println("\n\n\n\n\n\n\n");
+					telling = 0;
+					letters = new char[randomWoord.length + 2];
 				}
 			} else {
 				System.out.print("Je hebt verloren..\n Het woord was: ");
@@ -96,7 +106,6 @@ public class Eindopdracht {
 				String keuze = scanner2.nextLine();
 
 				if (keuze.equals("ja")) {
-					System.out.println("\n\n\n\n\n\n\n");
 					inGame = true;
 					woordIsGeraden = false;
 					gewonnen = false;
@@ -104,8 +113,8 @@ public class Eindopdracht {
 					randomWoord = woorden[nummer].toCharArray();
 					spelerKiest = new char[randomWoord.length];
 					geraden = 0;
-				} else {
-					System.out.println("\n\n\n\n\n\n\n");
+					telling = 0;
+					letters = new char[randomWoord.length + 2];
 				}
 			}
 
