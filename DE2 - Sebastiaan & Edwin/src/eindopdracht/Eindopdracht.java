@@ -28,9 +28,7 @@ public class Eindopdracht {
 
 			System.out.println(randomWoord.length);
 
-			for (int i = 0; i < spelerKiest.length; i++) { // De dashes die er komen te staan in het begin "_ _ _ _
-															// _ _
-															// _ _"
+			for (int i = 0; i < spelerKiest.length; i++) { // De dashes die er komen te staan in het begin "_ _ _ _"
 				spelerKiest[i] = '_';
 			}
 			int pogingen = 5;
@@ -83,6 +81,8 @@ public class Eindopdracht {
 					gewonnen = false;
 					nummer = new Random().nextInt(woorden.length);
 					randomWoord = woorden[nummer].toCharArray();
+					spelerKiest = new char[randomWoord.length];
+					geraden = 0;
 				} else {
 					System.out.println("\n\n\n\n\n\n\n");
 				}
@@ -102,6 +102,8 @@ public class Eindopdracht {
 					gewonnen = false;
 					nummer = new Random().nextInt(woorden.length);
 					randomWoord = woorden[nummer].toCharArray();
+					spelerKiest = new char[randomWoord.length];
+					geraden = 0;
 				} else {
 					System.out.println("\n\n\n\n\n\n\n");
 				}
